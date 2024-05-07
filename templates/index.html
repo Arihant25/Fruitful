@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Fruitful
+{% endblock %}
+
+{% block body %}
+    <div class="topNavBar">
+        <div class="invite">
+            Invite
+        </div>
+    
+        <h1> Fruitful </h1>
+
+        <div class="menu">
+            Menu
+        </div>
+    </div>
+
+    <div class="taskContainer">
+        <div class="tasks">
+            <p> To Do </p>
+            <div id="toDo">
+                <form action="/" method="POST">
+                    <label for="task"> Task: </label>
+                    <input type="text" name="taskName" id="taskName" required>
+                    <br>
+                    <input type="submit" value="Add Task" id="addToDo">
+                </form>
+            </div>
+        </div>
+
+        <div class="tasks">
+            <p> Doing </p>
+            <div id="Doing">
+                <div id="addDoing"> Add Task </div>
+            </div>
+        </div>
+
+        <div class="tasks">
+            <p> Done </p>
+            <div id="Done">
+                <div id="addDone"> Add Task </div>
+                <div id="addDone"> Temp Task </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% if tasks|length < 1 %}
+        <h3> No tasks created yet </h3>
+
+    {% else %}
+
+        <table>
+            <tr>
+                <th> Task </th>
+                <th> Added </th>
+                <th> Actions </th>
+            </tr>
+
+            
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.taskName }}</td>
+                    <td>{{ task.dateCreated.date() }}</td>
+                    <td>
+                        <a href="/update/{{task.id}}"> Edit Task </a>
+                        <br>
+                        <a href="/delete/{{task.id}}"> Delete Task </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    
+    {% endif %}
+        
+    <br>
+    <h2> Add Task </h2>
+
+    
+{% endblock %}

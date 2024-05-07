@@ -57,6 +57,8 @@ Ready to boost your productivity? Sign up for Fruitful today and experience the 
 
 ### Running locally
 
-First, run the development server with `npm run dev`.
+First, set up the SQL server using `pip install flask_sqlalchemy`
 
-Then, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then, run the development server with `flask run`.
+
+You can now open [http://localhost:3000](http://localhost:3000) in your browser to see the result.

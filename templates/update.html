@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Task Manager
+{% endblock %}
+
+{% block body %}
+    <h1> Task Manager </h1>
+
+    <br>
+    <h2> Update Task </h2>
+    
+    <form action="{{ url_for('update', id=task.id) }}" method="POST">
+        <label for="task"> Updated Task: </label>
+        <input type="text" name="taskName" id="taskName" value="{{task.taskName}}" required>
+        <br>
+        <input type="submit" value="Update Task">
+    </form>
+{% endblock %}
